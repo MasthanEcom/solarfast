@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col ">
+
+        <div class="row py-4">
+            <div class="col-12 col-md-12 pr-md-0">
+                <div id="info" class="shadow-sm rounded border p-3 h-100">
+                    <form [formGroup]="postalCodeForm" (ngSubmit)="findAddress()">
+                        <div class="row">
+                            <div class="col pr-0 form-group">
+                                <input type="search" class="form-control" [(ngModel)]="address"
+                                    (keydown.enter)="findAddress()" placeholder="Enter your postal code"
+                                    [disabled]="isWorking" formControlName="postalCode"
+                                    [ngClass]="{ 'is-invalid': submitted && validationControls['postalCode'].errors }">
+                                    <div *ngIf="submitted && validationControls['postalCode'].errors" class="invalid-feedback">
+                                        <div *ngIf="validationControls['postalCode'].errors['required']">Postal code is required</div>
+                                        <div *ngIf="validationControls['postalCode'].errors['ukPostalCode']">Invalid UK postal code format</div>
+                                      </div>
+                            </div>
+                            <div class="col-auto ml-auto form-group">
+                                <button class="btn btn-primary mr-1" (click)="findAddress()"
+                                    [disabled]="isWorking || !address?.length">
+                                    <i class="bi bi-map mr-md-1"></i> <span class="d-none d-md-inline-block">Next</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-12 col-md-6">
+                <div class="google_map_container shadow-sm rounded mt-3 mt-md-0">
+                    <google-map [zoom]="mapZoom" [center]="mapCenter" [options]="mapOptions">
+                        <map-marker #marker="mapMarker" [position]="mapCenter" [options]="markerOptions"
+                            (mapClick)="openInfoWindow(marker)" (mapDragend)="onMapDragEnd($event)">
+                        </map-marker>
+                        <map-info-window>{{ markerInfoContent }}</map-info-window>
+                    </google-map>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
