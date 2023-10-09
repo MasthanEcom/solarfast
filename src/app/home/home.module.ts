@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { HomeSlidesComponent } from './home-slides/home-slides.component';
 import { MaterialModule } from '../feature-modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
@@ -11,7 +10,7 @@ import { HomeSlideComponent } from './home-slide/home-slide.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, HomeSlidesComponent, HomeSlideComponent],
+  declarations: [HomeComponent, HomeSlideComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
