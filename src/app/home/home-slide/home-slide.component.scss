@@ -1,5 +1,5 @@
 .google-map{
-  position:absolute;
+  position:fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -8,6 +8,7 @@
   background: url("../../../assets/1/map.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
 }
 
 
@@ -67,6 +68,7 @@
   
   
   /*buttons*/
+
   #msform .action-button {
     width: 100px;
     background: #70c91b;
@@ -108,7 +110,8 @@
     padding: 15px;
   }
   
-  /*headings*/
+  /**** headings ****/
+
   .fs-title {
     font-size: 38px;
     color: #2c2c2c;
