@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+.progress-bar-top {
+    background-color: #f0f0f0;
+    height: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.progress-bar-fill {
+    background-color: #007bff;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+=======
 .google-map{
   position:fixed;
   top: 0;
@@ -11,6 +29,7 @@
   background-position: center center;
 }
 
+>>>>>>> e3a71cc130bd04ca9681e2c241a81198b6c92197
 
 #msform {
     text-align: center;
@@ -82,10 +101,27 @@
     font-family: 'Poppins', sans-serif;
     text-rendering: optimizelegibility;
   }
-  
+  #msform .action-button-red {
+    width: auto;
+    background: none;
+    font-weight: bold;
+    color: red;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    font-family: 'Poppins', sans-serif;
+    text-rendering: optimizelegibility;
+  }
   #msform .action-button:hover,
+
   #msform .action-button:focus {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #70c91b;
+  }
+  #msform .action-button-red:hover,
+  #msform .action-button-red:focus{
+    box-shadow: none
   }
   
   #msform .action-button-previous {
@@ -110,15 +146,15 @@
     padding: 15px;
   }
   
-  /**** headings ****/
-
+  /*headings*/
   .fs-title {
     font-size: 38px;
     color: #2c2c2c;
     margin-bottom: 15px;
     letter-spacing:0px;
     font-weight: bold;
-    line-height: 72px;
+    margin: 0;
+    
     text-rendering: optimizelegibility;
   }
   

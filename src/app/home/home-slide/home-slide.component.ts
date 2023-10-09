@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SolarslideshomeService } from 'src/app/services/solar-slides/solarslideshome.service';
 
 @Component({
@@ -11,20 +12,23 @@ export class HomeSlideComponent {
   steps!: any[];
   step: number = 1;
   currentChildStepCount: number = 1;
-  activeChildStep: number = 0; // Track the active child step
-
-  constructor(private solarSlidesService: SolarslideshomeService, private route:Router) { }
+  activeChildStep: number = 0;
+  kWhValue: string = ''; // Add this variable for the kWh input
+  annualConsumptionForm: FormGroup = new FormGroup({
+    annualConsumption: new FormControl('')
+  });
+  constructor(private solarSlidesService: SolarslideshomeService, private route: Router) { }
 
   ngOnInit(): void {
     this.steps = this.solarSlidesService.getEntryScreenData();
   }
 
-  next(i: number, j?: number, type?:string): void {
-    if(type){
+  next(i: number, j?: number, type?: string): void {
+    if (type) {
       const selectedType = type;
-      if(selectedType === "Renting"){
+      if (selectedType === "Renting") {
         this.route.navigate(['home/propertyownership']);
-        return
+        return;
       }
       else if (selectedType === "Flat") {
         this.route.navigate(['home/propertyownership']);
@@ -34,17 +38,16 @@ export class HomeSlideComponent {
     if (this.steps[i].childSteps) {
       if (this.activeChildStep < this.steps[i].childSteps.length - 1) {
         this.activeChildStep++;
-        this.currentChildStepCount++
+        this.currentChildStepCount++;
       } else {
-        // Move to the next step
         this.step++;
         this.activeChildStep = 0;
-        this.currentChildStepCount++
+        this.currentChildStepCount++;
       }
     } else {
       this.step++;
       this.activeChildStep = 0;
-      this.currentChildStepCount++
+      this.currentChildStepCount++;
     }
 
     if (typeof j !== 'undefined') {
@@ -54,20 +57,25 @@ export class HomeSlideComponent {
 
   previous(): void {
     if (this.steps[this.step - 2].childSteps) {
-      // Check if the first child step is active
       if (this.activeChildStep === 0) {
         this.step--;
-        this.currentChildStepCount--
+        this.currentChildStepCount--;
         this.activeChildStep = this.steps[this.step - 1].childSteps.length - 1;
       } else {
         this.activeChildStep--;
-        this.currentChildStepCount--
+        this.currentChildStepCount--;
       }
     } else {
       this.step--;
-      this.currentChildStepCount--
+      this.currentChildStepCount--;
     }
   }
+
+  handleIDontKnow(): void {
+    // Handle the "I Don't Know" button logic here
+  }
+
+  // Add getter for totalSteps
   get totalSteps(): number {
     let total = 0;
 
@@ -81,5 +89,4 @@ export class HomeSlideComponent {
 
     return total;
   }
-
 }

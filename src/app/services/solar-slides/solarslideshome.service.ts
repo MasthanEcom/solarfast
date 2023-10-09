@@ -91,25 +91,24 @@ export class SolarslideshomeService {
     {
       "step": 2,
       "title": "Your Home",
-      "question": "Do you own your home?",
+      "question": "What is your anual consumption (kWh)?",
+      "queries":"I don't know",
       "childSteps": [
         {
-          "title": 'Start',
-          "question": "Do you own your home?",
-          "options": [
-            {
-              "img": 'assets/1/homeowner.svg',
-              "type": 'Home Owner',
-            },
-            {
-              "img": 'assets/1/renting.svg',
-              "type": 'Renting',
-            },
-            {
-              "img": 'assets/1/landlord.svg',
-              "type": 'Landlord',
-            },
-          ],
+          "title": "Your Consumption",
+          "question": "What is your anual consumption (kWh)?",
+          "description": "Remember to check your energy bill if you are unsure",
+          "queries":"I don't know",
+          "placeholder":"kWh",
+          "options": [],
+        },
+        {
+          "title": "Your Consumption",
+          "question": "How much does a Unit of Electricity cost you? ",
+          "description": "Remember to check your energy bill if you are unsure",
+          "queries":"I have different day / night rates.",
+          "placeholder":"Unit rate in pence",
+          "options": [],
         }
       ]
     },
@@ -121,19 +120,9 @@ export class SolarslideshomeService {
         {
           "title": 'Start',
           "question": "Do you own your home?",
+          "queries":"I don't know",
           "options": [
-            {
-              "img": 'assets/1/homeowner.svg',
-              "type": 'Home Owner',
-            },
-            {
-              "img": 'assets/1/renting.svg',
-              "type": 'Renting',
-            },
-            {
-              "img": 'assets/1/landlord.svg',
-              "type": 'Landlord',
-            },
+            
           ],
         }
       ]
@@ -147,18 +136,7 @@ export class SolarslideshomeService {
           "title": 'Start',
           "question": "Do you own your home?",
           "options": [
-            {
-              "img": 'assets/1/homeowner.svg',
-              "type": 'Home Owner',
-            },
-            {
-              "img": 'assets/1/renting.svg',
-              "type": 'Renting',
-            },
-            {
-              "img": 'assets/1/landlord.svg',
-              "type": 'Landlord',
-            },
+            
           ],
         }
       ]
