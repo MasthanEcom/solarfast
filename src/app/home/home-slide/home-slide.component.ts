@@ -30,6 +30,10 @@ export class HomeSlideComponent {
         this.route.navigate(['home/propertyownership']);
         return;
       }
+      else if (selectedType === "Flat") {
+        this.route.navigate(['home/propertyownership']);
+        return;
+      }
     }
     if (this.steps[i].childSteps) {
       if (this.activeChildStep < this.steps[i].childSteps.length - 1) {

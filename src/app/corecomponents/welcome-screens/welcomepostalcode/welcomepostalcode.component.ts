@@ -41,7 +41,6 @@ export class WelcomepostalcodeComponent implements OnInit {
   ukPostalCodeValidator(control: AbstractControl): ValidationErrors | null {
     const ukPostalCodeRegex = /^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$/i; // Case-insensitive
     const isValid = ukPostalCodeRegex.test(control.value);
-  
     return isValid ? null : { ukPostalCode: true };
   }
   
@@ -60,15 +59,15 @@ export class WelcomepostalcodeComponent implements OnInit {
   @ViewChild(MapInfoWindow, { static: false })
   infoWindow!: MapInfoWindow;
 
-  mapZoom = 12;
+  mapZoom = 14;
   mapCenter!: google.maps.LatLng;
   mapOptions: google.maps.MapOptions = {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     zoomControl: true,
     scrollwheel: false,
     disableDoubleClickZoom: true,
-    maxZoom: 20,
-    minZoom: 4,
+    maxZoom: 18,
+    minZoom: 12,
   };
   lat: any;
   lng: any;

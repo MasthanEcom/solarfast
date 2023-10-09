@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .progress-bar-top {
     background-color: #f0f0f0;
     height: 10px;
@@ -14,6 +15,20 @@
     width: 0%;
     transition: width 0.3s;
 }
+=======
+.google-map{
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url("../../../assets/1/map.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+>>>>>>> e3a71cc130bd04ca9681e2c241a81198b6c92197
 
 #msform {
     text-align: center;
