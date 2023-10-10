@@ -7,12 +7,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './feature-modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PropertyOwnershipComponent } from './corecomponents/reusable/property-ownership/property-ownership.component';
+import { SolarfastsystemComponent } from './corecomponents/welcome-screens/solarfastsystem/solarfastsystem.component';
+import { ChoosesolarfastsystemComponent } from './corecomponents/welcome-screens/choosesolarfastsystem/choosesolarfastsystem.component';
+import { ChoosensystemComponent } from './corecomponents/welcome-screens/choosensystem/choosensystem.component';
+import { PickinstallationdateComponent } from './corecomponents/welcome-screens/pickinstallationdate/pickinstallationdate.component';
+import { CustomerdetailsentryformComponent } from './corecomponents/welcome-screens/customerdetailsentryform/customerdetailsentryform.component';
+import { OrderprogressComponent } from './corecomponents/welcome-screens/orderprogress/orderprogress.component';
+import { PhotouploadComponent } from './corecomponents/welcome-screens/photoupload/photoupload.component';
+import { OrderconfirmationComponent } from './corecomponents/welcome-screens/orderconfirmation/orderconfirmation.component';
+import { InstallmentbillingsummaryComponent } from './corecomponents/welcome-screens/installmentbillingsummary/installmentbillingsummary.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    PropertyOwnershipComponent
+    PropertyOwnershipComponent,
+    SolarfastsystemComponent,
+    ChoosesolarfastsystemComponent,
+    ChoosensystemComponent,
+    PickinstallationdateComponent,
+    CustomerdetailsentryformComponent,
+    OrderprogressComponent,
+    PhotouploadComponent,
+    OrderconfirmationComponent,
+    InstallmentbillingsummaryComponent,
+    
     ],
   imports: [
     BrowserModule,

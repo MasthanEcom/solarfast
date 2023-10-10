@@ -6,11 +6,13 @@ import { MaterialModule } from '../feature-modules/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { HomeSlideComponent } from './home-slide/home-slide.component';
+import { HomeslidesComponent } from './homeslides/homeslides.component';
+import { GooglemapComponent } from '../corecomponents/reusable/googlemap/googlemap.component';
 
 
 
 @NgModule({
-  declarations: [HomeComponent, HomeSlideComponent],
+  declarations: [HomeComponent, HomeSlideComponent, HomeslidesComponent, GooglemapComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

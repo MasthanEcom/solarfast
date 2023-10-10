@@ -29,8 +29,8 @@ export class EnteredPostalCodeService {
         if (!this.currentAuthState) {
 
             if (postalcode !== null) {
-
                 localStorage.setItem('data', postalcode)
+                localStorage.setItem('postalcode', JSON.stringify(postalcode))
                 this.currentAuthState = true;
                 this.authState$.next(this.currentAuthState);
                 this.router.navigate([this.returnUrl]).then();
