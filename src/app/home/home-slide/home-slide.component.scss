@@ -1,7 +1,7 @@
 
 .progress-bar-top {
-    background-color: #f0f0f0;
-    height: 10px;
+    background-color: #1a1a1a;
+    height: 15px;
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
 }
 
 .progress-bar-fill {
-    background-color: #007bff;
+    background-color: #74BD42;
     height: 100%;
     width: 0%;
     transition: width 0.3s;

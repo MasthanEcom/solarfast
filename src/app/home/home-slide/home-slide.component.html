@@ -32,7 +32,6 @@
                                 </div>
                             </div>
 
-<<<<<<< HEAD
                             <!-- Form for step 3 -->
                             <div *ngIf="step === 2">
                                 <div class="center-content">
@@ -41,39 +40,38 @@
                                             <div class="col-md-12 pr-0 form-group">
                                                 <input type="search" class="form-control" [(ngModel)]="kWhValue"
                                                     (keydown.enter)="next(i)" placeholder="{{data.childSteps[activeChildStep].placeholder}}"
-                                                    formControlName="annualConsumption"
-                                                    >
+                                                    formControlName="annualConsumption">
                                                     
                                             </div>
                                             <div class=" ml-auto form-group">
-                                                <div class="btns-next-prev">
+                                                <!-- <div class="btns-next-prev">
                                                     <input (click)="previous()" type="button" name="previous"
                                                         class="previous action-button-previous" value="Previous" />
-                                                    <!-- <input (click)="next(i)" type="button" name="next" class="next action-button"
-                                                        value="Next" /> -->
+                                                    <input (click)="next(i)" type="button" name="next" class="next action-button"
+                                                        value="Next" /> 
                                                     <input (click)="next(i)" type="button" name="dontKnow"
                                                         class="action-button-red" value="{{data.childSteps[activeChildStep].queries}}" />
-                                                </div>
-                                                <!-- <button class="btn btn-primary mr-1" (click)="findAddress()"
+                                                </div> -->
+                                                 <!-- <button class="btn btn-primary mr-1" (click)="findAddress()"
                                                     [disabled]="isWorking || !address?.length">
                                                     <i class="bi bi-map mr-md-1"></i> <span class="d-none d-md-inline-block">Next</span>
-                                                </button> -->
+                                                </button>  -->
                                             </div>
                                         </div>
                                     </form>
-                                    <!-- <div class="form-group">
+                                    <div class="form-group">
                                         <label for="kWhInput">Enter your kWh:</label>
                                         <input type="text" id="kWhInput" [(ngModel)]="kWhValue" name="kWhValue"
                                             class="form-control">
                                     </div>
-                                    <div class="btns-next-prev">
+                                     <div class="btns-next-prev">
                                         <input (click)="previous()" type="button" name="previous"
                                             class="previous action-button-previous" value="Previous" />
                                         <input (click)="next(i)" type="button" name="next" class="next action-button"
                                             value="Next" />
                                         <input (click)="next(i)" type="button" name="dontKnow"
                                             class="action-button" value="I Don't Know" />
-                                    </div> -->
+                                    </div>  
                                 </div>
                             </div>
 
@@ -85,13 +83,12 @@
                                     <input (click)="next(i)" type="button" name="next" class="next action-button"
                                         value="Next" />
                                 </div>
-=======
+
                             <div class="btns-next-prev">
                                 <input (click)="previous()" type="button" name="previous"
                                     class="previous action-button-previous" value="Back" />
                                 <input (click)="next(i)" type="button" name="next" class="next action-button"
                                     value="Next" />
->>>>>>> e3a71cc130bd04ca9681e2c241a81198b6c92197
                             </div>
                         </div>
                     </div>
