@@ -28,6 +28,7 @@ export class SolarslideshomeService {
             },
           ],
         },
+        
         {
           "title": "Your Home",
           "question": "What type of house do you have?",
