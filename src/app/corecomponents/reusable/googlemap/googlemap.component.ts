@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Router } from '@angular/router';
 import { GeocoderResponse } from 'src/app/models/googlemaps/geocoder-response.model';
@@ -8,58 +8,31 @@ import { EnteredPostalCodeService } from 'src/app/services/googlemaps/enteredpos
 import { GeocodingService } from 'src/app/services/googlemaps/geocoding.service';
 
 @Component({
-  selector: 'app-welcomepostalcode',
-  templateUrl: './welcomepostalcode.component.html',
-  styleUrls: ['./welcomepostalcode.component.scss']
+  selector: 'app-googlemap',
+  templateUrl: './googlemap.component.html',
+  styleUrls: ['./googlemap.component.scss']
 })
-export class WelcomepostalcodeComponent implements OnInit {
-
-  submitted = false;
-
-  postalCodeForm: FormGroup = new FormGroup({
-    postalCode: new FormControl('')
-  });
+export class GooglemapComponent {
+  postalCodeForm: any;
+  submitted= false;
 
   constructor(
     private geocodingService: GeocodingService, private route: Router, private formBuilder: FormBuilder, private postalCodeService:EnteredPostalCodeService
-  ) { }
+  ) { 
+    this.findAddress()
+  }
   ngOnInit(): void {
-    this.postalCodeForm = this.formBuilder.group(
-      {
-        postalCode: [
-          '',
-          [
-            Validators.required,
-            Validators.minLength(6),
-            Validators.maxLength(20),
-            this.ukPostalCodeValidator
-          ],
-        ],
-      }
-    );
-  }
-  ukPostalCodeValidator(control: AbstractControl): ValidationErrors | null {
-    const ukPostalCodeRegex = /^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$/i; // Case-insensitive
-    const isValid = ukPostalCodeRegex.test(control.value);
-    return isValid ? null : { ukPostalCode: true };
-  }
-  
-  get validationControls(): { [key: string]: AbstractControl } {
-    return this.postalCodeForm.controls;
-  }
 
-
-  onReset(): void {
-    this.submitted = false;
-    this.postalCodeForm.reset();
   }
-
+  display : any;
+  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
+  zoom = 4;
   @ViewChild(GoogleMap, { static: false })
   map!: GoogleMap;
   @ViewChild(MapInfoWindow, { static: false })
   infoWindow!: MapInfoWindow;
 
-  mapZoom = 14;
+  mapZoom = 20;
   mapCenter!: google.maps.LatLng;
   mapOptions: google.maps.MapOptions = {
     mapTypeId: google.maps.MapTypeId.SATELLITE,
@@ -86,14 +59,57 @@ export class WelcomepostalcodeComponent implements OnInit {
   formattedAddress?: string | null = null;
   locationCoords?: google.maps.LatLng | null = null;
 
-  get isWorking(): boolean {
-    return this.geolocationWorking || this.geocoderWorking;
-  }
-
   openInfoWindow(marker: MapMarker) {
     this.infoWindow.open(marker);
   }
 
+  moveMap(event: google.maps.MapMouseEvent) {
+    if(event.latLng!= null)
+    this.center = (event.latLng.toJSON());
+  }
+
+  move(event: google.maps.MapMouseEvent) {
+    if(event.latLng != null)
+    this.display = event.latLng.toJSON();
+  }
+  onMapDragEnd(event: any) {
+    this.lat = event.latLng?.lat();
+    this.lng = event.latLng?.lng()
+
+    const point: google.maps.LatLngLiteral = {
+      lat: this.lat,
+      lng: this.lng,
+    };
+
+    this.geocoderWorking = true;
+    this.geocodingService
+      .geocodeLatLng(point)
+      .then((response: GeocoderResponse) => {
+        if (response.status === 'OK') {
+          if (response.results.length) {
+            const value = response.results[0];
+
+            this.locationCoords = new google.maps.LatLng(point);
+
+            this.mapCenter = new google.maps.LatLng(point);
+            this.map.panTo(point);
+
+            this.address = value.formatted_address;
+            this.formattedAddress = value.formatted_address;
+
+            this.markerOptions = {
+              draggable: true,
+              animation: google.maps.Animation.DROP,
+            };
+
+            this.markerInfoContent = value.formatted_address;
+          }
+        }
+      })
+      .finally(() => {
+        this.geocoderWorking = false;
+      });
+  }
   getCurrentLocation() {
     this.geolocationWorking = true;
     navigator.geolocation.getCurrentPosition(
@@ -162,18 +178,20 @@ export class WelcomepostalcodeComponent implements OnInit {
 
     this.submitted = true;
 
-    if (this.postalCodeForm.invalid) {
-      return;
-    }
-
-    console.log(JSON.stringify(this.postalCodeForm.value, null, 2));
-    if (!this.address || this.address.length === 0) {
-      return;
-    }
+    // if (this.postalCodeForm.invalid) {
+    //   return;
+    // }
+    let postalCode:any = localStorage.getItem("postalcode");
+    postalCode = JSON.parse(postalCode);
+    postalCode = postalCode.postalCode
+    // console.log(JSON.stringify(this.postalCodeForm.value, null, 2));
+    // if (!this.address || this.address.length === 0) {
+    //   return;
+    // }
 
     this.geocoderWorking = true;
     this.geocodingService
-      .getLocation(this.address)
+      .getLocation(postalCode)
       .subscribe(
         (response: GeocoderResponse) => {
           if (response.status === 'OK' && response.results?.length) {
@@ -198,8 +216,8 @@ export class WelcomepostalcodeComponent implements OnInit {
               draggable: true,
               animation: google.maps.Animation.DROP,
             };
-            this.postalCodeService.storePostalCode(this.postalCodeForm.value);
-            this.route.navigate(['/home/dashboard']);
+            // this.postalCodeService.storePostalCode(this.postalCodeForm.value);
+            // this.route.navigate(['/home/dashboard']);
           } else {
             alert(response)
             // this.toastr.error(response.error_message, response.status);
@@ -210,46 +228,6 @@ export class WelcomepostalcodeComponent implements OnInit {
         }
       )
       .add(() => {
-        this.geocoderWorking = false;
-      });
-  }
-  // onMapDragEnd(event: any) {
-
-  onMapDragEnd(event: any) {
-    this.lat = event.latLng?.lat();
-    this.lng = event.latLng?.lng()
-
-    const point: google.maps.LatLngLiteral = {
-      lat: this.lat,
-      lng: this.lng,
-    };
-
-    this.geocoderWorking = true;
-    this.geocodingService
-      .geocodeLatLng(point)
-      .then((response: GeocoderResponse) => {
-        if (response.status === 'OK') {
-          if (response.results.length) {
-            const value = response.results[0];
-
-            this.locationCoords = new google.maps.LatLng(point);
-
-            this.mapCenter = new google.maps.LatLng(point);
-            this.map.panTo(point);
-
-            this.address = value.formatted_address;
-            this.formattedAddress = value.formatted_address;
-
-            this.markerOptions = {
-              draggable: true,
-              animation: google.maps.Animation.DROP,
-            };
-
-            this.markerInfoContent = value.formatted_address;
-          }
-        }
-      })
-      .finally(() => {
         this.geocoderWorking = false;
       });
   }

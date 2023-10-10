@@ -7,7 +7,7 @@ export class SolarslideshomeService {
   private entryScreenData = [
     {
       "step": 1,
-      "title": "Start",
+      "title": "Your Home",
       "question": "Do you own your home?",
       "childSteps": [
         {
@@ -91,56 +91,66 @@ export class SolarslideshomeService {
     },
     {
       "step": 2,
-      "title": "Your Home",
+      "title": "Your Consumption",
       "question": "What is your anual consumption (kWh)?",
-      "queries":"I don't know",
+      "queries": "I don't know",
       "childSteps": [
         {
           "title": "Your Consumption",
           "question": "What is your anual consumption (kWh)?",
           "description": "Remember to check your energy bill if you are unsure",
-          "queries":"I don't know",
-          "placeholder":"kWh",
+          "queries": "I don't know",
+          "placeholder": "kWh",
           "options": [],
         },
         {
           "title": "Your Consumption",
           "question": "How much does a Unit of Electricity cost you? ",
           "description": "Remember to check your energy bill if you are unsure",
-          "queries":"I have different day / night rates.",
-          "placeholder":"Unit rate in pence",
+          "queries": "I have different day / night rates.",
+          "placeholder": "Unit rate in pence",
           "options": [],
         }
       ]
     },
     {
       "step": 3,
-      "title": "Your Consumption",
+      "title": "Location Pin",
       "question": "Do you own your home?",
-      "childSteps": [
+      "itemsList": [
         {
-          "title": 'Start',
+          "title": 'Get Started',
           "question": "Do you own your home?",
-          "queries":"I don't know",
+          "description": "Get Started",
           "options": [
-            
+            {
+              "img": 'assets/7/drag-the-map-bg.png',
+              "type": '',
+              "description": "Locate your house by dragging the map.",
+              "name": "Drag the map"
+            },
+            {
+              "img": 'assets/7/use-zoom-bg.png',
+              "type": '',
+              "description": "Locate your house by dragging the map.",
+              "name": "Use the zoom controls"
+            },
+            {
+              "img": 'assets/7/drop-pin-bg.png',
+              "type": '',
+              "description": "Tap to drop the pin on your rooftop.",
+              "name": "Drop the pin"
+            },
           ],
-        }
-      ]
+        },
+      ],
+      "childSteps": []
     },
     {
       "step": 4,
-      "title": "Location Pin",
+      "title": "Google Maps",
       "question": "Do you own your home?",
-      "childSteps": [
-        {
-          "title": 'Start',
-          "question": "Do you own your home?",
-          "options": [
-            
-          ],
-        }
-      ]
+      "childSteps": []
     }
   ];
 

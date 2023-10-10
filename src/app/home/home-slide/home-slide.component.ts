@@ -11,12 +11,14 @@ import { SolarslideshomeService } from 'src/app/services/solar-slides/solarslide
 export class HomeSlideComponent {
   steps!: any[];
   step: number = 1;
+  googleMapenabled = false;
   currentChildStepCount: number = 1;
   activeChildStep: number = 0;
   kWhValue: string = ''; // Add this variable for the kWh input
   annualConsumptionForm: FormGroup = new FormGroup({
     annualConsumption: new FormControl('')
   });
+  
   constructor(private solarSlidesService: SolarslideshomeService, private route: Router) { }
 
   ngOnInit(): void {
@@ -56,23 +58,23 @@ export class HomeSlideComponent {
   }
 
   previous(): void {
-    if (this.steps[this.step - 2].childSteps) {
-      if (this.activeChildStep === 0) {
-        this.step--;
-        this.currentChildStepCount--;
-        this.activeChildStep = this.steps[this.step - 1].childSteps.length - 1;
-      } else {
-        this.activeChildStep--;
-        this.currentChildStepCount--;
-      }
-    } else {
+    if (this.activeChildStep > 0) {
+      this.activeChildStep--;
+    } else if (this.step > 1) { // Check if you're not on the first step
       this.step--;
-      this.currentChildStepCount--;
+      if (this.steps[this.step - 1].childSteps) {
+        this.activeChildStep = this.steps[this.step - 1].childSteps.length - 1;
+      }
     }
   }
 
+
+
   handleIDontKnow(): void {
     // Handle the "I Don't Know" button logic here
+  }
+  getStarted(){
+    this.googleMapenabled = true;
   }
 
   // Add getter for totalSteps
