@@ -41,6 +41,7 @@ export class GooglemapComponent {
     disableDoubleClickZoom: true,
     maxZoom: 18,
     minZoom: 12,
+    disableDefaultUI: true,
   };
   lat: any;
   lng: any;

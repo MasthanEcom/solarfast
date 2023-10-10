@@ -17,12 +17,11 @@
         <div class="col-md-12">
             <button>
                 Need help ?
-                Speak to our team
+            <span>Speak to our team</span>
             </button>
         </div>
         <div class="col-md-12 col-md-offset-3 main-content">
            
-
             <div class="card-content">
                 <div id="msform">
                     <div *ngFor="let data of steps; let i = index">
@@ -139,7 +138,6 @@
                             </div>
 
 
-
                             <!-- Previous and Next buttons for other steps -->
                             <div *ngIf="step !== 2 && step !== 3">
 
@@ -181,7 +179,7 @@
 </div>
 <div *ngIf="step === 4">
     <div class="map">
-    <div class="google-map">
+    <div class="google-map-page">
         <div class="row">
             <div class="col-md-12">
                 <app-googlemap></app-googlemap>
