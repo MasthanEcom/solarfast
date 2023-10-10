@@ -43,14 +43,16 @@ export class GooglemapComponent {
     minZoom: 12,
     disableDefaultUI: true,
   };
+
+
   lat: any;
   lng: any;
-
-
   markerInfoContent = '';
+  customMarkerIconUrl = 'assets/7/map-icon.png';
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
     animation: google.maps.Animation.DROP,
+    icon: this.customMarkerIconUrl, 
   };
 
   geocoderWorking = false;

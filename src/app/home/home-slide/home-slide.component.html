@@ -86,7 +86,7 @@
 
                             <!-- Form for step 3 -->
                             <div *ngIf="step === 3">
-                                <div class="container">
+                                <div class="container zoom-controls">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="text-center">
@@ -94,8 +94,8 @@
                                                     [alt]="data.itemsList[activeChildStep].options[0].type"
                                                     class="location-pin-image">
                                             </div>
-                                            <span class="text-center">{{ data.itemsList[activeChildStep].options[0].name
-                                                }}</span>
+                                            <h4 class="text-center">{{ data.itemsList[activeChildStep].options[0].name
+                                                }}</h4>
                                             <p class="text-center">{{
                                                 data.itemsList[activeChildStep].options[0].description }}</p>
                                         </div>
@@ -105,8 +105,8 @@
                                                     [alt]="data.itemsList[activeChildStep].options[1].type"
                                                     class="location-pin-image">
                                             </div>
-                                            <span class="text-center">{{ data.itemsList[activeChildStep].options[1].name
-                                                }}</span>
+                                            <h4 class="text-center">{{ data.itemsList[activeChildStep].options[1].name
+                                                }}</h4>
                                             <p class="text-center">{{
                                                 data.itemsList[activeChildStep].options[1].description }}</p>
 
@@ -117,8 +117,8 @@
                                                     [alt]="data.itemsList[activeChildStep].options[2].name"
                                                     class="location-pin-image">
                                             </div>
-                                            <span class="text-center">{{ data.itemsList[activeChildStep].options[2].name
-                                                }}</span>
+                                            <h4 class="text-center">{{ data.itemsList[activeChildStep].options[2].name
+                                                }}</h4>
                                             <p class="text-center">{{
                                                 data.itemsList[activeChildStep].options[2].description }}</p>
                                             <!-- <button type="button" class="btn btn-primary btn-block"

@@ -354,6 +354,22 @@ img {
   align-items: center;
 }
 
+.zoom-controls{
+  width: 100%;
+  text-align: center;
+}
+
+.zoom-controls h4{
+  color: #2c2c2c;
+  font-weight:600;
+  font-size:20px;
+  margin-top:10px;
+}
+
+.zoom-controls p{
+  font-size:14px;
+  color: #1a1a1a;
+}
 
 /***Tab View***/
 @media screen and (max-width:1920px) {}
