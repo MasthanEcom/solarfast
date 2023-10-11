@@ -1,5 +1,4 @@
 .progress-bar-top {
-<<<<<<< HEAD
   background-color: #f0f0f0;
   height: 10px;
   position: fixed;
@@ -21,7 +20,6 @@
 
 .google-map {
   position: fixed;
-=======
     background-color: #1a1a1a;
     height: 15px;
     position: fixed;
@@ -39,7 +37,6 @@
 }
 .google-map{
   position:fixed;
->>>>>>> d677014ebff51cd5cfec7caff62b4f0d85cd9cca
   top: 0;
   left: 0;
   width: 100%;

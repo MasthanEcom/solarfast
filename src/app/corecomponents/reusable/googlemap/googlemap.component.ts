@@ -50,12 +50,14 @@ export class GooglemapComponent {
     disableDoubleClickZoom: true,
     maxZoom: 18,
     minZoom: 12,
+    disableDefaultUI: true,
   };
+
+
   lat: any;
   lng: any;
-
-
   markerInfoContent = '';
+  customMarkerIconUrl = 'assets/7/map-icon.png';
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
     animation: google.maps.Animation.DROP,
