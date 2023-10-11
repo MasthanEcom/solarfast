@@ -41,9 +41,9 @@ export class GooglemapComponent {
   @ViewChild(MapInfoWindow, { static: false })
   infoWindow!: MapInfoWindow;
 
-  mapZoom = 20;
-  mapCenter!: google.maps.LatLng;
-  mapOptions: google.maps.MapOptions = {
+    mapZoom = 20;
+    mapCenter!: google.maps.LatLng;
+    mapOptions: google.maps.MapOptions = {
     mapTypeId: google.maps.MapTypeId.SATELLITE,
     zoomControl: true,
     scrollwheel: false,
@@ -59,9 +59,9 @@ export class GooglemapComponent {
   markerInfoContent = '';
   customMarkerIconUrl = 'assets/7/map-icon.png';
   markerOptions: google.maps.MarkerOptions = {
-    draggable: false,
-    animation: google.maps.Animation.DROP,
-    icon: 'assets/7/map-icon.png'
+  draggable: false,
+  animation: google.maps.Animation.DROP,
+  icon: 'assets/7/map-icon.png'
   };
 
   geocoderWorking = false;
