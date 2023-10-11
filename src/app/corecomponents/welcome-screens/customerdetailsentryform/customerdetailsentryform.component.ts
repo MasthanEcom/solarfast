@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-customerdetailsentryform',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./customerdetailsentryform.component.scss']
 })
 export class CustomerdetailsentryformComponent {
+  @Output() previousStepEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() nextStepEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  onPreviousStepClick() {
+    this.previousStepEvent.emit();
+  }
+
+  onNextStepClick() {
+    this.nextStepEvent.emit();
+  }
 }

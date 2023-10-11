@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Router } from '@angular/router';
@@ -15,7 +15,16 @@ import { GeocodingService } from 'src/app/services/googlemaps/geocoding.service'
 export class GooglemapComponent {
   postalCodeForm: any;
   submitted= false;
+  @Output() previousStepEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() nextStepEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  onPreviousStepClick() {
+    this.previousStepEvent.emit();
+  }
+
+  onNextStepClick() {
+    this.nextStepEvent.emit();
+  }
   constructor(
     private geocodingService: GeocodingService, private route: Router, private formBuilder: FormBuilder, private postalCodeService:EnteredPostalCodeService
   ) { 
@@ -50,6 +59,7 @@ export class GooglemapComponent {
   markerOptions: google.maps.MarkerOptions = {
     draggable: false,
     animation: google.maps.Animation.DROP,
+    icon: 'assets/7/map-icon.png'
   };
 
   geocoderWorking = false;
@@ -93,16 +103,18 @@ export class GooglemapComponent {
 
             this.mapCenter = new google.maps.LatLng(point);
             this.map.panTo(point);
-
+            this.onNextStepClick()
             this.address = value.formatted_address;
             this.formattedAddress = value.formatted_address;
 
             this.markerOptions = {
               draggable: true,
               animation: google.maps.Animation.DROP,
+              icon: 'assets/7/map-icon.png'
             };
 
             this.markerInfoContent = value.formatted_address;
+            
           }
         }
       })
@@ -140,6 +152,7 @@ export class GooglemapComponent {
               this.markerOptions = {
                 draggable: true,
                 animation: google.maps.Animation.DROP,
+                icon: 'assets/7/map-icon.png'
               };
             } else {
               alert("err msg")
@@ -215,6 +228,7 @@ export class GooglemapComponent {
             this.markerOptions = {
               draggable: true,
               animation: google.maps.Animation.DROP,
+              icon: 'assets/7/map-icon.png'
             };
             // this.postalCodeService.storePostalCode(this.postalCodeForm.value);
             // this.route.navigate(['/home/dashboard']);

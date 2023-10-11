@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-choosesolarfastsystem',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./choosesolarfastsystem.component.scss']
 })
 export class ChoosesolarfastsystemComponent {
+  @Output() previousStepEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() nextStepEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  onPreviousStepClick() {
+    this.previousStepEvent.emit();
+  }
+
+  onNextStepClick() {
+    this.nextStepEvent.emit();
+  }
 }

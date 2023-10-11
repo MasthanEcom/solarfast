@@ -1,1 +1,14 @@
-<p>homeslides works!</p>
+<div>
+    <app-homenextsteps *ngIf="currentStep === 1" (nextStepEvent)="nextStep()"></app-homenextsteps>
+    <app-selecthouseonmap *ngIf="currentStep === 2" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-selecthouseonmap>
+    <app-googlemap *ngIf="currentStep === 3" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-googlemap>
+    <app-solarfastsystem *ngIf="currentStep === 4" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-solarfastsystem>
+    <app-choosesolarfastsystem *ngIf="currentStep === 5" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-choosesolarfastsystem>
+    <app-choosensystem *ngIf="currentStep === 6" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-choosensystem>
+    <app-installmentbillingsummary *ngIf="currentStep === 7" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-installmentbillingsummary>
+    <app-pickinstallationdate *ngIf="currentStep === 8" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-pickinstallationdate>
+    <app-customerdetailsentryform *ngIf="currentStep === 9" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-customerdetailsentryform>
+    <app-orderprogress *ngIf="currentStep === 10" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-orderprogress>
+    <app-photoupload *ngIf="currentStep === 11" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-photoupload>
+    <app-orderconfirmation *ngIf="currentStep === 12" (previousStepEvent)="previousStep()" (nextStepEvent)="nextStep()"></app-orderconfirmation>
+  </div>

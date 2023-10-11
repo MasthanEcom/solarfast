@@ -144,18 +144,50 @@ export class SolarslideshomeService {
         },
       ],
       "childSteps": []
-    },
-    {
-      "step": 4,
-      "title": "Google Maps",
-      "question": "Do you own your home?",
-      "childSteps": []
     }
   ];
+  private locationData = [
+    {
+      "step": 1,
+      "title": "Location Pin",
+      "question": "Do you own your home?",
+      "itemsList": [
+        {
+          "title": 'Get Started',
+          "question": "Do you own your home?",
+          "description": "Get Started",
+          "options": [
+            {
+              "img": 'assets/7/drag-the-map-bg.png',
+              "type": '',
+              "description": "Locate your house by dragging the map.",
+              "name": "Drag the map"
+            },
+            {
+              "img": 'assets/7/use-zoom-bg.png',
+              "type": '',
+              "description": "Locate your house by dragging the map.",
+              "name": "Use the zoom controls"
+            },
+            {
+              "img": 'assets/7/drop-pin-bg.png',
+              "type": '',
+              "description": "Tap to drop the pin on your rooftop.",
+              "name": "Drop the pin"
+            },
+          ],
+        },
+      ],
+      "childSteps": []
+    },
+  ]
 
   constructor() { }
 
   getEntryScreenData() {
     return this.entryScreenData;
+  }
+  getLocationData() {
+    return this.locationData;
   }
 }

@@ -16,21 +16,16 @@ import { OrderprogressComponent } from './corecomponents/welcome-screens/orderpr
 import { PhotouploadComponent } from './corecomponents/welcome-screens/photoupload/photoupload.component';
 import { OrderconfirmationComponent } from './corecomponents/welcome-screens/orderconfirmation/orderconfirmation.component';
 import { InstallmentbillingsummaryComponent } from './corecomponents/welcome-screens/installmentbillingsummary/installmentbillingsummary.component';
+import { HomenextstepsComponent } from './corecomponents/welcome-screens/homenextsteps/homenextsteps.component';
+import { SelecthouseonmapComponent } from './corecomponents/welcome-screens/selecthouseonmap/selecthouseonmap.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PropertyOwnershipComponent,
-    SolarfastsystemComponent,
-    ChoosesolarfastsystemComponent,
-    ChoosensystemComponent,
-    PickinstallationdateComponent,
-    CustomerdetailsentryformComponent,
-    OrderprogressComponent,
-    PhotouploadComponent,
-    OrderconfirmationComponent,
-    InstallmentbillingsummaryComponent,
+    
+    
     
     ],
   imports: [

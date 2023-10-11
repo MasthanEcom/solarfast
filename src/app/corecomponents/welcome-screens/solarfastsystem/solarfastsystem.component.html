@@ -1,1 +1,39 @@
-<p>solarfastsystem works!</p>
+<div class="container">
+    <!-- Header Row -->
+    <div class="row">
+      <div class="col-12">
+        <div class="title">
+            <button (click)="onPreviousStepClick()">Back</button>
+            <h1>{{ item.systemName }}</h1>
+        </div>
+        
+        <p>{{item.recommendation}}</p>
+      </div>
+    </div>
+    <!-- Main Content Row -->
+    <div class="row">
+      <!-- Left Side Image Column (can add an image here) -->
+      <div class="col-md-4">
+        <img [src]="item.image" alt="Image" class="img-fluid">
+      </div>
+      <!-- Specifications Column with Vertical Border -->
+      <div class="col-md-4 specifications">
+        <h2>{{ item.title }}</h2>
+        <ul>
+          <li>{{ item.title }}</li>
+          <li>{{ item.solarPanels[0].model }}</li>
+          <li> {{ item.inverter }}</li>
+          <li>{{ item.inverter }}</li>
+          <li> {{ item.moreDetails }}</li>
+        </ul>
+      </div>
+      <!-- Price Column -->
+      <div class="col-md-3">
+        <h2>Price</h2>
+        <p class="price">{{ item.price }}</p>
+        <!-- Payment Button -->
+        <button class="btn btn-primary" (click)="onNextStepClick()">Proceed To Next Step</button>
+      </div>
+    </div>
+  </div>
+  

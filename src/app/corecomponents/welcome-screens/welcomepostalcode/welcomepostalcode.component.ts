@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { GoogleMap, MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { Router } from '@angular/router';
@@ -13,7 +13,16 @@ import { GeocodingService } from 'src/app/services/googlemaps/geocoding.service'
   styleUrls: ['./welcomepostalcode.component.scss']
 })
 export class WelcomepostalcodeComponent implements OnInit {
+  @Output() previousStepEvent: EventEmitter<void> = new EventEmitter<void>();
+  @Output() nextStepEvent: EventEmitter<void> = new EventEmitter<void>();
 
+  onPreviousStepClick() {
+    this.previousStepEvent.emit();
+  }
+
+  onNextStepClick() {
+    this.nextStepEvent.emit();
+  }
   submitted = false;
 
   postalCodeForm: FormGroup = new FormGroup({
