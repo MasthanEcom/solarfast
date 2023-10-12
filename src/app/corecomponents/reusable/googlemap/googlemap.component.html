@@ -9,11 +9,12 @@
 </google-map> -->
     <div>
     <button (click)="onPreviousStepClick()">Back</button>
+    <button (click)="onNextStepClick()">Next</button>
   </div>
-<google-map [zoom]="mapZoom" [center]="mapCenter" [options]="mapOptions" width="100%" height="100vh">
+<!-- <google-map [zoom]="mapZoom" [center]="mapCenter" [options]="mapOptions" width="100%" height="100vh">
     <map-marker #marker="mapMarker" [position]="mapCenter" [options]="markerOptions"
         (mapClick)="openInfoWindow(marker)" (mapDragend)="onMapDragEnd($event)">
     </map-marker>
     <map-info-window>{{ markerInfoContent }}</map-info-window>
-</google-map>
+</google-map> -->
 

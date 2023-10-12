@@ -14,7 +14,34 @@ body {
 h1,h2,h3,h4,h5,h6{
     font-family: 'Poppins', sans-serif !important;
 }
-
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Poppins', sans-serif !important; }
+
+.btn-success{
+   background-size: 100%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #8c97a6), color-stop(100%, #758294));
+    background-image: -webkit-linear-gradient(top, #8c97a6, #758294);
+    background-image: -moz-linear-gradient(top, #8c97a6, #758294);
+    background-image: -o-linear-gradient(top, #8c97a6, #758294);
+    background-image: linear-gradient(top, #8c97a6, #758294); 
+}
+
+
+.btn-success:hover {
+
+    -webkit-transition: box-shadow 0.05s ease-in-out;
+    -moz-transition: box-shadow 0.05s ease-in-out;
+    -o-transition: box-shadow 0.05s ease-in-out;
+  transition: box-shadow 0.05s ease-in-out; 
+}
+
+
+.btn-success:active {
+    background: #818d9d;
+    border-color: #5d6979;
+    -webkit-box-shadow: 0 0 5px #818d9d inset;
+    -moz-box-shadow: 0 0 5px #818d9d inset;
+    box-shadow: 0 0 5px #818d9d inset; 
+}
+
+
 

@@ -1,5 +1,101 @@
-<div>
+<div class="back-buttons">
     <h2>Your Details</h2>
     <button (click)="onPreviousStepClick()">Back</button>
     <button (click)="onNextStepClick()">Next</button>
+  </div>
+
+
+<div class="google-map"></div>
+
+<div class="user-details">
+  <div class="card">
+    <div class="card-body">
+        <div class="heading-title">
+          <h1><button (click)="onPreviousStepClick()" class="back"><i class="bi bi-arrow-left"></i></button> Your Details</h1>
+            <p>So we can begin your order process.</p>
+        </div>
+
+        <div class="row mb-4">
+          
+          <div class="col-md-6 fv-row">
+            <div class="input-group">
+              <span class="input-group-text" id="first"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control form-control-solid" placeholder="First name" name="first-name"/>
+            </div>
+          </div>
+
+          <div class="col-md-6 fv-row">
+            <div class="input-group">
+              <span class="input-group-text" id="lastname"><i class="bi bi-person-fill"></i></span>
+              <input type="text" class="form-control form-control-solid" placeholder="Last name" name="last-name"/>
+          </div>
+          </div>
+
+          </div>
+
+
+          <div class="d-flex flex-column mb-4 fv-row">
+            <div class="input-group">
+              <span class="input-group-text" id="email"><i class="bi bi-envelope-fill"></i></span>
+            <input type="email" class="form-control form-control-solid" placeholder="Email" name="Email"/>
+          </div>
+          </div>
+
+          <div class="d-flex flex-column mb-4 fv-row">
+            <div class="input-group">
+              <span class="input-group-text" id="lastname"><i class="bi bi-telephone-fill"></i></span>
+            <input type="tel" class="form-control form-control-solid" placeholder="Phone" name="phone"/>
+          </div>
+          </div>
+
+           <div class="d-flex flex-column mb-4 fv-row">
+            <div class="input-group">
+              <span class="input-group-text" id="lastname"><i class="bi bi-geo-alt-fill"></i></span>
+            <input class="form-control form-control-solid" placeholder="Address 1" name="address1"/>
+          </div>
+          </div>
+
+        <div class="d-flex flex-column mb-4 fv-row">
+          <div class="input-group">
+            <span class="input-group-text" id="lastname"><i class="bi bi-geo-alt-fill"></i></span>
+            <input class="form-control form-control-solid" placeholder="Address 2" name="address2"/>
+        </div>
+        </div>
+
+        <div class="row g-9 mb-5">
+            <div class="col-md-6 fv-row">
+              <div class="input-group">
+                <span class="input-group-text" id="lastname"><i class="bi bi-geo-alt-fill"></i></span>
+                <input class="form-control form-control-solid" placeholder="Town/City " name="town"/>
+            </div>
+            </div>
+    
+            <div class="col-md-6 fv-row">
+              <div class="input-group">
+                <span class="input-group-text" id="lastname"><i class="bi bi-geo-alt-fill"></i></span>
+                <input class="form-control form-control-solid" placeholder="Postcode" name="postcode"/>
+            </div>
+            </div>
+        </div>
+
+        <div class="mb-5 fv-row">
+          <div class="d-flex flex-stack justify-content-between">
+              <div class="me-5">
+                  <label class="fs-6">I want to stay updated with latest news, offers and updates</label>
+              </div>
+              <div class="d-flex align-items-center">
+                  <label class="form-check form-check-custom form-check-solid me-10">
+                      <input class="form-check-input h-20px w-20px" type="checkbox" name="communication[]" value="email" checked="checked">
+                  </label>
+              </div>
+          </div>
+      </div>
+        
+
+        <div class="fv-row mb-5">
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+
+      </div>
+    </div>
   </div>
